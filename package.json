@@ -1,0 +1,21 @@
+{
+  "name": "spanish-learning-app",
+  "version": "1.0.0",
+  "description": "Interactive Spanish learning app for elementary students",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'No build step needed'"
+  },
+  "keywords": [
+    "spanish",
+    "learning",
+    "education",
+    "kids"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
