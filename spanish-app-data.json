@@ -1,0 +1,349 @@
+{
+  "colors": [
+    {
+      "spanish": "rojo",
+      "english": "red",
+      "emoji": "🔴"
+    },
+    {
+      "spanish": "azul",
+      "english": "blue",
+      "emoji": "🔵"
+    },
+    {
+      "spanish": "verde",
+      "english": "green",
+      "emoji": "🟢"
+    },
+    {
+      "spanish": "amarillo",
+      "english": "yellow",
+      "emoji": "🟡"
+    },
+    {
+      "spanish": "naranja",
+      "english": "orange",
+      "emoji": "🟠"
+    },
+    {
+      "spanish": "morado",
+      "english": "purple",
+      "emoji": "🟣"
+    },
+    {
+      "spanish": "rosa",
+      "english": "pink",
+      "emoji": "🩷"
+    },
+    {
+      "spanish": "negro",
+      "english": "black",
+      "emoji": "⚫"
+    },
+    {
+      "spanish": "blanco",
+      "english": "white",
+      "emoji": "⚪"
+    },
+    {
+      "spanish": "café",
+      "english": "brown",
+      "emoji": "🟤"
+    }
+  ],
+  "numbers": [
+    {
+      "spanish": "uno",
+      "english": "one",
+      "emoji": "1️⃣"
+    },
+    {
+      "spanish": "dos",
+      "english": "two",
+      "emoji": "2️⃣"
+    },
+    {
+      "spanish": "tres",
+      "english": "three",
+      "emoji": "3️⃣"
+    },
+    {
+      "spanish": "cuatro",
+      "english": "four",
+      "emoji": "4️⃣"
+    },
+    {
+      "spanish": "cinco",
+      "english": "five",
+      "emoji": "5️⃣"
+    },
+    {
+      "spanish": "seis",
+      "english": "six",
+      "emoji": "6️⃣"
+    },
+    {
+      "spanish": "siete",
+      "english": "seven",
+      "emoji": "7️⃣"
+    },
+    {
+      "spanish": "ocho",
+      "english": "eight",
+      "emoji": "8️⃣"
+    },
+    {
+      "spanish": "nueve",
+      "english": "nine",
+      "emoji": "9️⃣"
+    },
+    {
+      "spanish": "diez",
+      "english": "ten",
+      "emoji": "🔟"
+    }
+  ],
+  "animals": [
+    {
+      "spanish": "perro",
+      "english": "dog",
+      "emoji": "🐕"
+    },
+    {
+      "spanish": "gato",
+      "english": "cat",
+      "emoji": "🐈"
+    },
+    {
+      "spanish": "pájaro",
+      "english": "bird",
+      "emoji": "🐦"
+    },
+    {
+      "spanish": "pez",
+      "english": "fish",
+      "emoji": "🐟"
+    },
+    {
+      "spanish": "caballo",
+      "english": "horse",
+      "emoji": "🐴"
+    },
+    {
+      "spanish": "vaca",
+      "english": "cow",
+      "emoji": "🐄"
+    },
+    {
+      "spanish": "cerdo",
+      "english": "pig",
+      "emoji": "🐷"
+    },
+    {
+      "spanish": "oveja",
+      "english": "sheep",
+      "emoji": "🐑"
+    },
+    {
+      "spanish": "conejo",
+      "english": "rabbit",
+      "emoji": "🐰"
+    },
+    {
+      "spanish": "pollo",
+      "english": "chicken",
+      "emoji": "🐔"
+    }
+  ],
+  "family": [
+    {
+      "spanish": "madre",
+      "english": "mother",
+      "emoji": "👩"
+    },
+    {
+      "spanish": "padre",
+      "english": "father",
+      "emoji": "👨"
+    },
+    {
+      "spanish": "hermano",
+      "english": "brother",
+      "emoji": "👦"
+    },
+    {
+      "spanish": "hermana",
+      "english": "sister",
+      "emoji": "👧"
+    },
+    {
+      "spanish": "abuelo",
+      "english": "grandfather",
+      "emoji": "👴"
+    },
+    {
+      "spanish": "abuela",
+      "english": "grandmother",
+      "emoji": "👵"
+    },
+    {
+      "spanish": "tío",
+      "english": "uncle",
+      "emoji": "👨‍🦱"
+    },
+    {
+      "spanish": "tía",
+      "english": "aunt",
+      "emoji": "👩‍🦱"
+    },
+    {
+      "spanish": "primo",
+      "english": "cousin",
+      "emoji": "👶"
+    },
+    {
+      "spanish": "familia",
+      "english": "family",
+      "emoji": "👨‍👩‍👧‍👦"
+    }
+  ],
+  "greetings": [
+    {
+      "spanish": "hola",
+      "english": "hello",
+      "emoji": "👋"
+    },
+    {
+      "spanish": "adiós",
+      "english": "goodbye",
+      "emoji": "🖐️"
+    },
+    {
+      "spanish": "gracias",
+      "english": "thank you",
+      "emoji": "🙏"
+    },
+    {
+      "spanish": "por favor",
+      "english": "please",
+      "emoji": "😊"
+    },
+    {
+      "spanish": "sí",
+      "english": "yes",
+      "emoji": "✅"
+    },
+    {
+      "spanish": "no",
+      "english": "no",
+      "emoji": "❌"
+    },
+    {
+      "spanish": "buenos días",
+      "english": "good morning",
+      "emoji": "🌅"
+    },
+    {
+      "spanish": "buenas tardes",
+      "english": "good afternoon",
+      "emoji": "☀️"
+    },
+    {
+      "spanish": "buenas noches",
+      "english": "good night",
+      "emoji": "🌙"
+    },
+    {
+      "spanish": "perdón",
+      "english": "sorry",
+      "emoji": "😔"
+    },
+    {
+      "spanish": "de nada",
+      "english": "you're welcome",
+      "emoji": "😄"
+    },
+    {
+      "spanish": "¿Cómo estás?",
+      "english": "How are you?",
+      "emoji": "🤔"
+    },
+    {
+      "spanish": "bien",
+      "english": "good/well",
+      "emoji": "😊"
+    },
+    {
+      "spanish": "mal",
+      "english": "bad",
+      "emoji": "😞"
+    },
+    {
+      "spanish": "¿Qué tal?",
+      "english": "What's up?",
+      "emoji": "👍"
+    },
+    {
+      "spanish": "hasta luego",
+      "english": "see you later",
+      "emoji": "👋"
+    },
+    {
+      "spanish": "hasta mañana",
+      "english": "see you tomorrow",
+      "emoji": "📅"
+    },
+    {
+      "spanish": "mucho gusto",
+      "english": "nice to meet you",
+      "emoji": "🤝"
+    },
+    {
+      "spanish": "¿Cómo te llamas?",
+      "english": "What's your name?",
+      "emoji": "❓"
+    },
+    {
+      "spanish": "me llamo...",
+      "english": "my name is...",
+      "emoji": "🙋"
+    },
+    {
+      "spanish": "bienvenido",
+      "english": "welcome",
+      "emoji": "🎉"
+    }
+  ],
+  "food": [
+    {
+      "spanish": "pan",
+      "english": "bread",
+      "emoji": "📝"
+    },
+    {
+      "spanish": "manzana",
+      "english": "apple",
+      "emoji": "📝"
+    },
+    {
+      "spanish": "agua",
+      "english": "water",
+      "emoji": "📝"
+    },
+    {
+      "spanish": "pizza",
+      "english": "pizza",
+      "emoji": "📝"
+    },
+    {
+      "spanish": "pizza",
+      "english": "pizza",
+      "emoji": "📝"
+    },
+    {
+      "spanish": "pizza",
+      "english": "pizza",
+      "emoji": "📝"
+    }
+  ]
+}

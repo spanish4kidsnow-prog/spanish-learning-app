@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Vocabulary</title>
+</head>
+<body>
+    <h1>Vocabulary Debug</h1>
+    <button onclick="showVocab()">Show Current Vocabulary</button>
+    <button onclick="clearStorage()">Clear LocalStorage</button>
+    <pre id="output"></pre>
+
+    <script>
+        function showVocab() {
+            const saved = localStorage.getItem('spanishAppVocabulary');
+            const output = document.getElementById('output');
+            if (saved) {
+                const vocab = JSON.parse(saved);
+                output.textContent = JSON.stringify(vocab, null, 2);
+                console.log('Categories:', Object.keys(vocab));
+                console.log('Full vocabulary:', vocab);
+            } else {
+                output.textContent = 'No vocabulary saved in localStorage';
+            }
+        }
+
+        function clearStorage() {
+            if (confirm('Clear all saved vocabulary?')) {
+                localStorage.removeItem('spanishAppVocabulary');
+                alert('Cleared!');
+            }
+        }
+
+        // Auto-show on load
+        showVocab();
+    </script>
+</body>
+</html>

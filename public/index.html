@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Learning Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Spanish Learning Adventure</h1>
+            <p class="subtitle">Practice Spanish with fun games!</p>
+            <button class="admin-btn" onclick="showAdminLogin()">⚙️ Admin</button>
+        </header>
+
+        <!-- Main Menu -->
+        <div id="main-menu" class="screen active">
+            <div class="menu-grid">
+                <button class="menu-btn" onclick="showScreen('flashcards')">
+                    <span class="icon">📚</span>
+                    <span>Flashcards</span>
+                </button>
+                <button class="menu-btn" onclick="showScreen('matching')">
+                    <span class="icon">🎮</span>
+                    <span>Matching Game</span>
+                </button>
+                <button class="menu-btn" onclick="showScreen('quiz')">
+                    <span class="icon">❓</span>
+                    <span>Quiz Time</span>
+                </button>
+                <button class="menu-btn" onclick="showScreen('memory')">
+                    <span class="icon">🧠</span>
+                    <span>Memory Game</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Flashcards Screen -->
+        <div id="flashcards" class="screen">
+            <button class="back-btn" onclick="showScreen('main-menu')">← Back to Menu</button>
+            <h2>Vocabulary Flashcards</h2>
+            <div class="category-selector">
+                <button class="category-btn active" onclick="changeCategory('colors')">Colors</button>
+                <button class="category-btn" onclick="changeCategory('numbers')">Numbers</button>
+                <button class="category-btn" onclick="changeCategory('animals')">Animals</button>
+                <button class="category-btn" onclick="changeCategory('family')">Family</button>
+                <button class="category-btn" onclick="changeCategory('greetings')">Greetings</button>
+            </div>
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="flipCard()">
+                    <div class="flashcard-inner" id="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div class="word-display" id="spanish-word"></div>
+                            <div class="emoji-display" id="word-emoji"></div>
+                            <p class="hint">Click to see English!</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="word-display" id="english-word"></div>
+                            <p class="hint">Click to flip back!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flashcard-controls">
+                    <button class="control-btn" onclick="previousCard()">← Previous</button>
+                    <span class="card-counter" id="card-counter">1 / 10</span>
+                    <button class="control-btn" onclick="nextCard()">Next →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Matching Game Screen -->
+        <div id="matching" class="screen">
+            <button class="back-btn" onclick="showScreen('main-menu')">← Back to Menu</button>
+            <h2>Matching Game</h2>
+            <p class="instruction">Match the Spanish words with their English meanings!</p>
+            <div class="score-board">
+                <span>Score: <span id="matching-score">0</span></span>
+                <button class="reset-btn" onclick="resetMatchingGame()">New Game</button>
+            </div>
+            <div class="matching-container" id="matching-container">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz" class="screen">
+            <button class="back-btn" onclick="showScreen('main-menu')">← Back to Menu</button>
+            <h2>Quiz Time!</h2>
+            <div class="quiz-container">
+                <div class="quiz-progress">
+                    <span>Question <span id="quiz-current">1</span> of <span id="quiz-total">10</span></span>
+                    <span>Score: <span id="quiz-score">0</span></span>
+                </div>
+                <div class="quiz-question">
+                    <p class="question-text" id="question-text">What does "rojo" mean in English?</p>
+                    <div class="answer-options" id="answer-options">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="quiz-feedback"></div>
+                <button class="next-question-btn hidden" id="next-question-btn" onclick="nextQuestion()">Next Question</button>
+            </div>
+        </div>
+
+        <!-- Memory Game Screen -->
+        <div id="memory" class="screen">
+            <button class="back-btn" onclick="showScreen('main-menu')">← Back to Menu</button>
+            <h2>Memory Game</h2>
+            <p class="instruction">Find matching pairs of Spanish and English words!</p>
+            <div class="score-board">
+                <span>Pairs Found: <span id="memory-score">0</span></span>
+                <button class="reset-btn" onclick="resetMemoryGame()">New Game</button>
+            </div>
+            <div class="memory-grid" id="memory-grid">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Admin Login Screen -->
+        <div id="admin-login" class="screen">
+            <button class="back-btn" onclick="showScreen('main-menu')">← Back to Menu</button>
+            <h2>Admin Login</h2>
+            <div class="admin-login-container">
+                <p class="instruction">Enter password to manage content</p>
+                <input type="password" id="admin-password" placeholder="Enter password" onkeypress="if(event.key==='Enter') checkAdminPassword()">
+                <button class="control-btn" onclick="checkAdminPassword()">Login</button>
+                <p class="error-message" id="login-error"></p>
+            </div>
+        </div>
+
+        <!-- Admin Panel Screen -->
+        <div id="admin-panel" class="screen">
+            <button class="back-btn" onclick="showScreen('main-menu')">← Back to Menu</button>
+            <h2>Content Manager</h2>
+
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="showAdminTab('add-words')">Add Vocabulary</button>
+                <button class="admin-tab" onclick="showAdminTab('manage-words')">Manage Words</button>
+                <button class="admin-tab" onclick="showAdminTab('manage-categories')">Categories</button>
+                <button class="admin-tab" onclick="showAdminTab('import-export')">Import/Export</button>
+            </div>
+
+            <!-- Add Vocabulary Tab -->
+            <div id="add-words" class="admin-tab-content active">
+                <h3>Add New Vocabulary Word</h3>
+                <form class="admin-form" onsubmit="addVocabularyWord(event)">
+                    <div class="form-group">
+                        <label>Category:</label>
+                        <select id="word-category" required>
+                            <option value="colors">Colors</option>
+                            <option value="numbers">Numbers</option>
+                            <option value="animals">Animals</option>
+                            <option value="family">Family</option>
+                            <option value="greetings">Greetings</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Spanish Word:</label>
+                        <input type="text" id="word-spanish" required placeholder="e.g., gato">
+                    </div>
+                    <div class="form-group">
+                        <label>English Translation:</label>
+                        <input type="text" id="word-english" required placeholder="e.g., cat">
+                    </div>
+                    <div class="form-group">
+                        <label>Emoji:</label>
+                        <select id="word-emoji">
+                            <option value="">Select an emoji...</option>
+                            <optgroup label="Food">
+                                <option value="🍎">🍎 Apple</option>
+                                <option value="🍌">🍌 Banana</option>
+                                <option value="🍞">🍞 Bread</option>
+                                <option value="🥕">🥕 Carrot</option>
+                                <option value="🧀">🧀 Cheese</option>
+                                <option value="🍗">🍗 Chicken</option>
+                                <option value="🍫">🍫 Chocolate</option>
+                                <option value="☕">☕ Coffee</option>
+                                <option value="🥚">🥚 Egg</option>
+                                <option value="🍟">🍟 Fries</option>
+                                <option value="🍇">🍇 Grapes</option>
+                                <option value="🍔">🍔 Hamburger</option>
+                                <option value="🍯">🍯 Honey</option>
+                                <option value="🍦">🍦 Ice Cream</option>
+                                <option value="🥛">🥛 Milk</option>
+                                <option value="🍊">🍊 Orange</option>
+                                <option value="🍑">🍑 Peach</option>
+                                <option value="🍕">🍕 Pizza</option>
+                                <option value="🥔">🥔 Potato</option>
+                                <option value="🍓">🍓 Strawberry</option>
+                                <option value="🍅">🍅 Tomato</option>
+                                <option value="💧">💧 Water</option>
+                                <option value="🍉">🍉 Watermelon</option>
+                                <option value="🥩">🥩 Meat</option>
+                            </optgroup>
+                            <optgroup label="Animals">
+                                <option value="🐕">🐕 Dog</option>
+                                <option value="🐈">🐈 Cat</option>
+                                <option value="🐦">🐦 Bird</option>
+                                <option value="🐟">🐟 Fish</option>
+                                <option value="🐴">🐴 Horse</option>
+                                <option value="🐄">🐄 Cow</option>
+                                <option value="🐷">🐷 Pig</option>
+                                <option value="🐑">🐑 Sheep</option>
+                                <option value="🐰">🐰 Rabbit</option>
+                                <option value="🐔">🐔 Chicken</option>
+                            </optgroup>
+                            <optgroup label="Classroom">
+                                <option value="📚">📚 Books</option>
+                                <option value="✏️">✏️ Pencil</option>
+                                <option value="📝">📝 Paper</option>
+                                <option value="🖍️">🖍️ Crayon</option>
+                                <option value="📖">📖 Book</option>
+                                <option value="🎒">🎒 Backpack</option>
+                                <option value="✂️">✂️ Scissors</option>
+                                <option value="📏">📏 Ruler</option>
+                                <option value="🖊️">🖊️ Pen</option>
+                                <option value="👨‍🏫">👨‍🏫 Teacher</option>
+                            </optgroup>
+                            <optgroup label="Body Parts">
+                                <option value="👁️">👁️ Eye</option>
+                                <option value="👃">👃 Nose</option>
+                                <option value="👂">👂 Ear</option>
+                                <option value="👄">👄 Mouth</option>
+                                <option value="✋">✋ Hand</option>
+                                <option value="🦶">🦶 Foot</option>
+                                <option value="🦵">🦵 Leg</option>
+                                <option value="💪">💪 Arm</option>
+                            </optgroup>
+                            <optgroup label="Emotions">
+                                <option value="😊">😊 Happy</option>
+                                <option value="😢">😢 Sad</option>
+                                <option value="😠">😠 Angry</option>
+                                <option value="😴">😴 Tired</option>
+                                <option value="😨">😨 Scared</option>
+                                <option value="🤔">🤔 Thinking</option>
+                            </optgroup>
+                            <optgroup label="Other">
+                                <option value="🏠">🏠 House</option>
+                                <option value="🚗">🚗 Car</option>
+                                <option value="⚽">⚽ Soccer</option>
+                                <option value="🎵">🎵 Music</option>
+                                <option value="⭐">⭐ Star</option>
+                                <option value="❤️">❤️ Heart</option>
+                                <option value="📝">📝 Note</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <button type="submit" class="control-btn">Add Word</button>
+                </form>
+                <div class="success-message" id="add-word-success"></div>
+            </div>
+
+            <!-- Manage Words Tab -->
+            <div id="manage-words" class="admin-tab-content">
+                <h3>Manage Vocabulary</h3>
+                <div class="category-selector">
+                    <button class="category-btn active" onclick="showCategoryWords('colors')">Colors</button>
+                    <button class="category-btn" onclick="showCategoryWords('numbers')">Numbers</button>
+                    <button class="category-btn" onclick="showCategoryWords('animals')">Animals</button>
+                    <button class="category-btn" onclick="showCategoryWords('family')">Family</button>
+                    <button class="category-btn" onclick="showCategoryWords('greetings')">Greetings</button>
+                </div>
+                <div class="word-list" id="word-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Manage Categories Tab -->
+            <div id="manage-categories" class="admin-tab-content">
+                <h3>Manage Categories</h3>
+                <form class="admin-form" onsubmit="addCategory(event)">
+                    <div class="form-group">
+                        <label>New Category Name:</label>
+                        <input type="text" id="new-category-name" required placeholder="e.g., Food">
+                    </div>
+                    <button type="submit" class="control-btn">Add Category</button>
+                </form>
+                <div class="success-message" id="add-category-success"></div>
+
+                <h3 style="margin-top: 30px;">Existing Categories</h3>
+                <div class="category-list" id="category-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Import/Export Tab -->
+            <div id="import-export" class="admin-tab-content">
+                <h3>Export Data</h3>
+                <p class="instruction">Download all your vocabulary data as a backup</p>
+                <button class="control-btn" onclick="exportData()">Download Data</button>
+
+                <h3 style="margin-top: 30px;">Import Data</h3>
+                <p class="instruction">Upload a previously exported data file</p>
+                <input type="file" id="import-file" accept=".json" style="margin-bottom: 15px;">
+                <button class="control-btn" onclick="importData()">Import Data</button>
+                <div class="success-message" id="import-success"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        <p>Spanish 4 Kids by Carolina VLK</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
