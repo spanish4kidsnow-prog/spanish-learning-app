@@ -16,6 +16,25 @@
 
         <!-- Main Menu -->
         <div id="main-menu" class="screen active">
+            <h2 style="text-align: center; margin-bottom: 20px;">Choose Your Level</h2>
+            <div class="level-selector">
+                <button class="level-btn active" onclick="setLevel(1)" data-level="1">
+                    <span class="level-icon">⭐</span>
+                    <span class="level-name">Level 1</span>
+                    <span class="level-desc">Beginner</span>
+                </button>
+                <button class="level-btn" onclick="setLevel(2)" data-level="2">
+                    <span class="level-icon">⭐⭐</span>
+                    <span class="level-name">Level 2</span>
+                    <span class="level-desc">Intermediate</span>
+                </button>
+                <button class="level-btn" onclick="setLevel(3)" data-level="3">
+                    <span class="level-icon">⭐⭐⭐</span>
+                    <span class="level-name">Level 3</span>
+                    <span class="level-desc">Advanced</span>
+                </button>
+            </div>
+            <h3 style="text-align: center; margin-top: 30px; margin-bottom: 15px;">Select a Game</h3>
             <div class="menu-grid">
                 <button class="menu-btn" onclick="showScreen('flashcards')">
                     <span class="icon">📚</span>
@@ -162,6 +181,14 @@
                     <div class="form-group">
                         <label>English Translation:</label>
                         <input type="text" id="word-english" required placeholder="e.g., cat">
+                    </div>
+                    <div class="form-group">
+                        <label>Level:</label>
+                        <select id="word-level" required>
+                            <option value="1">Level 1 - Beginner</option>
+                            <option value="2">Level 2 - Intermediate</option>
+                            <option value="3">Level 3 - Advanced</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Emoji:</label>
